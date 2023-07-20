@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Product } from '../../types/product';
 import './OrderedProductCard.scss';
 import { ReactComponent as IconRemove } from '../../images/icon-trash.svg';
 import { Button } from '../../controls/Button';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { actions } from '../../redux/actions/orderActions';
+import { actions as orderActions } from '../../redux/actions/orderActions';
 
 interface Props {
   product: Product;
@@ -14,7 +14,7 @@ interface Props {
 
 export const OrderedProductCard: FC<Props> = ({ product, orderId }) => {
   const dispatch = useAppDispatch();
-  const { orders, order } = useAppSelector((state) => state.orders);
+  const { order } = useAppSelector((state) => state.orders);
   const {
     title,
     photo,
@@ -23,29 +23,17 @@ export const OrderedProductCard: FC<Props> = ({ product, orderId }) => {
     id,
   } = product;
 
+  console.log(order);
+
   const handleDeleteClick = (currentProductId: number, currentOrderId: number) => {
-    dispatch(actions.getOrderById(currentOrderId));
+    dispatch(orderActions.getOrderById(currentOrderId));
 
-    console.log(order);
-
-    const newOrder = {
-      ...order,
-      products: order?.products.filter((item) => item !== currentProductId),
-    };
-
-    const newOrders = orders.map((item) => {
-      if (item.id === currentOrderId) {
-        return newOrder;
-      }
-
-      return item;
-    });
-
-    console.log('newOrder', newOrder);
-    console.log(newOrders);
-
-    // dispatch(actions.setOrders(newOrders));
+    dispatch(orderActions.deleteProductFromOrder(currentOrderId, currentProductId));
   };
+
+  useEffect(() => {
+    dispatch(orderActions.getOrderById(orderId));
+  }, [order]);
 
   return (
     <div className="ordered-item">

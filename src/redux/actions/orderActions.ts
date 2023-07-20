@@ -3,6 +3,7 @@ import {
   GetOrderByIdAction,
   Order,
   OrdersActionTypes,
+  RemoveProductFromOrderAction,
   SetErrorAction,
   SetIsClickedOrderAction,
   SetLoadingAction,
@@ -40,6 +41,14 @@ const getOrderById = (orderId: number): GetOrderByIdAction => ({
   payload: orderId,
 });
 
+const deleteProductFromOrder = (
+  orderId: number,
+  productId: number,
+): RemoveProductFromOrderAction => ({
+  type: 'order/REMOVE_PRODUCT_FROM_ORDER',
+  payload: { orderId, productId },
+});
+
 const fetchOrders = () => {
   return async (dispatch: Dispatch<OrdersActionTypes>) => {
     // const response = await fetch('URL');
@@ -66,4 +75,5 @@ export const actions = {
   setSelectedOrderId,
   setIsClickedOrder,
   getOrderById,
+  deleteProductFromOrder,
 };

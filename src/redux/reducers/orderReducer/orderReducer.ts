@@ -52,6 +52,20 @@ export const orderReducer = (
         order: state.orders.find((order) => order.id === action.payload) || null,
       };
 
+    case OrderActions.REMOVE_PRODUCT_FROM_ORDER: {
+      const { orderId, productId } = action.payload;
+
+      return {
+        ...state,
+        orders: state.orders.map((order) => (order.id === orderId
+          ? {
+            ...order,
+            products: order.products.filter((product) => product !== productId),
+          }
+          : order)),
+      };
+    }
+
     default:
       return state;
   }

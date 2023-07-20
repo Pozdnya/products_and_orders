@@ -44,14 +44,17 @@ export interface GetOrderByIdAction {
   payload: number;
 }
 
-// export interface UpdateOrderByIdAction {
-//   type: 'orders/UPDATE_ORDER_BY_ID';
-//   payload: Order;
-// }
-
 export interface UpdateOrdersAction {
   type: 'orders/UPDATE_ORDERS';
   payload: Order[];
+}
+
+export interface RemoveProductFromOrderAction {
+  type: 'order/REMOVE_PRODUCT_FROM_ORDER';
+  payload: {
+    orderId: number;
+    productId: number;
+  };
 }
 
 export type OrdersActionTypes = SetOrdersAction
@@ -59,7 +62,9 @@ export type OrdersActionTypes = SetOrdersAction
 | SetErrorAction
 | SetSelectedOrderIdAction
 | SetIsClickedOrderAction
-| GetOrderByIdAction;
+| GetOrderByIdAction
+| UpdateOrdersAction
+| RemoveProductFromOrderAction;
 
 // eslint-disable-next-line no-shadow
 export enum OrderActions {
@@ -69,6 +74,6 @@ export enum OrderActions {
   SET_SELECTED_ORDER_ID = 'orders/SET_SELECTED_ORDER_ID',
   SET_IS_CLICKED_ORDER = 'orders/SET_IS_CLICKED_ORDER',
   GET_ORDER_BY_ID = 'orders/GET_ORDER_BY_ID',
-  // UPDATE_ORDER_BY_ID = 'orders/UPDATE_ORDER_BY_ID',
   UPDATE_ORDERS = 'orders/UPDATE_ORDERS',
+  REMOVE_PRODUCT_FROM_ORDER = 'order/REMOVE_PRODUCT_FROM_ORDER',
 }
