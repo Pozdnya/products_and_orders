@@ -1,0 +1,28 @@
+@import '../../styles/vars';
+@import '../../styles/animations';
+
+.routes-list__item {
+  margin-top: 12px;
+
+  &-link {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+    color: #525C62;
+    position: relative;
+
+    &--active {
+      &::after {
+        position: absolute;
+        left: 50%;
+        bottom: -4px;
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: $primary-color;
+        animation: slide-in-center .3s ease forwards;
+      }
+    }
+  }
+}
+

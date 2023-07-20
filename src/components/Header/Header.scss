@@ -1,0 +1,19 @@
+@import '../../styles/vars';
+
+.header {
+  border-bottom: 1px solid #E5E5E5;
+  padding: 24px 0;
+  box-shadow: 0 1px 20px 8px #E0E5E8;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+  }
+}

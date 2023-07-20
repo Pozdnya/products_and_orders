@@ -1,0 +1,33 @@
+.form {
+  position: relative;
+
+  &__input {
+    border-color: #DFE3E7;
+    height: 36px;
+    width: 400px;
+    background-color: #F0F2F4;
+    padding: 4px 16px;
+    border-radius: 4px;
+    box-shadow: inset 1px 1px 5px 0px #DEE2E6;
+
+    &::placeholder {
+      font-style: 24px;
+      font-weight: 800;
+    }
+  }
+
+  &__clear {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+
+    &-btn {
+      border: none;
+      border-radius: 50%;
+      background-color: #CECECE;
+    }
+  }
+}

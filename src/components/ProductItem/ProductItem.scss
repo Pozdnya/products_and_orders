@@ -1,0 +1,148 @@
+.card {
+  border: 1px solid #CFD7DB;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  padding: 20px 40px;
+  width: auto;
+
+  &__image {
+
+    &-photo {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+
+    &-title {
+      font-size: 24px;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    &-sn {
+      font-size: 12px;
+      font-weight: 400;
+      color: #BAC3C9;
+    }
+  }
+
+  &__type {
+    width: 150px;
+    text-align: center;
+
+    &-text {
+      font-size: 28px;
+      font-weight: 600;
+      color: #848687;
+    }
+  }
+
+  &__guarantie {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 200px;
+
+    &-interval {
+      &-text {
+        font-size: 18px;
+        font-weight: 400;
+        color: #848687;
+      }
+    }
+
+    &-text {
+      &-date {
+        font-size: 18px;
+        font-weight: 00;
+        color: #848687;
+      }
+    }
+  }
+
+  &__is-new {
+    &-text {
+      font-size: 24px;
+      font-weight: 500;
+      color: #848687;
+    }
+  }
+
+  &__price {
+    width: 200px;
+
+    &-text {
+      font-size: 14px;
+      font-weight: 400;
+      color: #848687;
+
+      &--default-price {
+        font-size: 28px;
+        color: #5A6D78;
+      }
+    }
+  }
+
+  &__order {
+    width: 120px;
+
+    &-name {
+      text-decoration: underline;
+    }
+  }
+
+  &__date {
+    width: 150px;
+
+    &-small-text {
+      font-size: 12px;
+      font-weight: 400;
+      color: #BAC3C9;
+      text-align: center;
+    }
+
+    &-text {
+      text-align: center;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &-btn {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+
+
+      &:hover {
+        background-color: #F0F2F4;
+        border-radius: 50%;
+        border: 1px solid #CFD7DB;
+        fill: #514f51;
+        opacity: 0.6;
+      }
+
+      &-add,
+      &-trash {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

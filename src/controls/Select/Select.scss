@@ -1,0 +1,14 @@
+.filter-types {
+  font-size: 14px;
+  color: #92A2AB;
+
+  &__select {
+    width: 300px;
+    height: 35px;
+
+    &-option {
+      color: #333E45;
+      font-weight: 500;
+    }
+  }
+}
