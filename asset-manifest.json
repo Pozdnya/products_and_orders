@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "./static/css/main.7e66acc1.chunk.css",
+    "main.js": "./static/js/main.c38bb404.chunk.js",
+    "main.js.map": "./static/js/main.c38bb404.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.8c9895b1.js",
+    "runtime-main.js.map": "./static/js/runtime-main.8c9895b1.js.map",
+    "static/js/2.590d0c83.chunk.js": "./static/js/2.590d0c83.chunk.js",
+    "static/js/2.590d0c83.chunk.js.map": "./static/js/2.590d0c83.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.7e66acc1.chunk.css.map": "./static/css/main.7e66acc1.chunk.css.map",
+    "static/js/2.590d0c83.chunk.js.LICENSE.txt": "./static/js/2.590d0c83.chunk.js.LICENSE.txt",
+    "static/media/car.jpg": "./static/media/car.e0682e27.jpg",
+    "static/media/icon-arrow.2db30279.svg": "./static/media/icon-arrow.2db30279.svg",
+    "static/media/icon-clock.c2bae2ce.svg": "./static/media/icon-clock.c2bae2ce.svg",
+    "static/media/icon-gear.b025f2dd.svg": "./static/media/icon-gear.b025f2dd.svg",
+    "static/media/icon-list.daca2846.svg": "./static/media/icon-list.daca2846.svg",
+    "static/media/icon-plus.c4ad914c.svg": "./static/media/icon-plus.c4ad914c.svg",
+    "static/media/icon-trash.940f2754.svg": "./static/media/icon-trash.940f2754.svg",
+    "static/media/monitor.jpg": "./static/media/monitor.1426c899.jpg",
+    "static/media/phone.jpg": "./static/media/phone.bf48e787.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8c9895b1.js",
+    "static/js/2.590d0c83.chunk.js",
+    "static/css/main.7e66acc1.chunk.css",
+    "static/js/main.c38bb404.chunk.js"
+  ]
+}
