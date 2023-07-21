@@ -1,3 +1,5 @@
+import { Product } from './product';
+
 export interface Order {
   id: number;
   title: string;
@@ -13,6 +15,7 @@ export type OrdersState = {
   selectedOrderId: number;
   isClickedOrder: boolean;
   order: Order | null;
+  productsInOrder: Product[] | [];
 };
 
 export interface SetOrdersAction {
@@ -57,6 +60,11 @@ export interface RemoveProductFromOrderAction {
   };
 }
 
+export interface setProductsInOrderAction {
+  type: 'order/SET_PRODUCTS_IN_ORDER';
+  payload: Product[];
+}
+
 export type OrdersActionTypes = SetOrdersAction
 | SetLoadingAction
 | SetErrorAction
@@ -64,7 +72,8 @@ export type OrdersActionTypes = SetOrdersAction
 | SetIsClickedOrderAction
 | GetOrderByIdAction
 | UpdateOrdersAction
-| RemoveProductFromOrderAction;
+| RemoveProductFromOrderAction
+| setProductsInOrderAction;
 
 // eslint-disable-next-line no-shadow
 export enum OrderActions {
@@ -76,4 +85,5 @@ export enum OrderActions {
   GET_ORDER_BY_ID = 'orders/GET_ORDER_BY_ID',
   UPDATE_ORDERS = 'orders/UPDATE_ORDERS',
   REMOVE_PRODUCT_FROM_ORDER = 'order/REMOVE_PRODUCT_FROM_ORDER',
+  SET_PRODUCTS_IN_ORDER = 'order/SET_PRODUCTS_IN_ORDER',
 }

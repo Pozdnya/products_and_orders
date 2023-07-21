@@ -9,8 +9,10 @@ import {
   SetLoadingAction,
   SetOrdersAction,
   SetSelectedOrderIdAction,
+  setProductsInOrderAction,
 } from '../../types/order';
 import { orders } from '../../api/orders';
+import { Product } from '../../types/product';
 
 const setOrders = (payload: Order[]): SetOrdersAction => ({
   type: 'orders/SET_ORDERS',
@@ -49,6 +51,11 @@ const deleteProductFromOrder = (
   payload: { orderId, productId },
 });
 
+const setProductsInOrder = (products: Product[]): setProductsInOrderAction => ({
+  type: 'order/SET_PRODUCTS_IN_ORDER',
+  payload: products,
+});
+
 const fetchOrders = () => {
   return async (dispatch: Dispatch<OrdersActionTypes>) => {
     // const response = await fetch('URL');
@@ -76,4 +83,5 @@ export const actions = {
   setIsClickedOrder,
   getOrderById,
   deleteProductFromOrder,
+  setProductsInOrder,
 };

@@ -7,6 +7,7 @@ const initialState: OrdersState = {
   selectedOrderId: 0,
   isClickedOrder: false,
   order: null,
+  productsInOrder: [],
 };
 
 export const orderReducer = (
@@ -65,6 +66,12 @@ export const orderReducer = (
           : order)),
       };
     }
+
+    case OrderActions.SET_PRODUCTS_IN_ORDER:
+      return {
+        ...state,
+        productsInOrder: action.payload,
+      };
 
     default:
       return state;

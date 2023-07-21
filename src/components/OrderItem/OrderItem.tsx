@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { ReactComponent as IconList } from '../../images/icon-list.svg';
 import { ReactComponent as IconArrow } from '../../images/icon-arrow.svg';
 import './OrderItem.scss';
@@ -13,7 +13,6 @@ import {
 import { Button } from '../../controls/Button';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { actions as orderActions } from '../../redux/actions/orderActions';
-import { Product } from '../../types/product';
 import { OrderedProducts } from '../ProductsInOrder';
 
 interface Props {
@@ -22,8 +21,7 @@ interface Props {
 
 export const OrderItem: FC<Props> = ({ order }) => {
   const dispatch = useAppDispatch();
-  const [productsInOrder, setProductsInOrder] = useState<Product[] | []>([]);
-  const { selectedOrderId, orders } = useAppSelector((state) => state.orders);
+  const { selectedOrderId, orders, productsInOrder } = useAppSelector((state) => state.orders);
   const {
     id,
     date,
@@ -41,7 +39,8 @@ export const OrderItem: FC<Props> = ({ order }) => {
 
     const productFromOrder = getProductsFromOrder(clickedOrder, prodState);
 
-    setProductsInOrder(productFromOrder);
+    // setProductsInOrder(productFromOrder);
+    dispatch(orderActions.setProductsInOrder(productFromOrder));
   };
 
   const handleClickProductsClose = () => {

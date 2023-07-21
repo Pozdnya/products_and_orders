@@ -32,7 +32,7 @@ export const OrderedProductCard: FC<Props> = ({ product, orderId }) => {
   };
 
   useEffect(() => {
-    dispatch(orderActions.getOrderById(orderId));
+    // dispatch(orderActions.getOrderById(orderId));
   }, [order]);
 
   return (
