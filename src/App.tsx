@@ -10,6 +10,7 @@ import { useAppDispatch } from './redux/hooks';
 import { actions as orderActions } from './redux/actions/orderActions';
 import { actions as productActions } from './redux/actions/productActions';
 import { Orders } from './components/pages/Orders';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 export const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -38,6 +39,7 @@ export const App: React.FC = () => {
           </div>
         </div>
       </main>
+
     </div>
   );
 };

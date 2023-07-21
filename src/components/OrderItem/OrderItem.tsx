@@ -6,14 +6,13 @@ import './OrderItem.scss';
 import { Order } from '../../types/order';
 import {
   changeMonthView,
-  getProductsFromOrder,
   shortDate,
   sumProducts,
 } from '../../utils/variables';
 import { Button } from '../../controls/Button';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { actions as orderActions } from '../../redux/actions/orderActions';
-import { OrderedProducts } from '../ProductsInOrder';
+import { OrderedProducts } from '../OrderedProducts';
 
 interface Props {
   order: Order;
@@ -21,7 +20,9 @@ interface Props {
 
 export const OrderItem: FC<Props> = ({ order }) => {
   const dispatch = useAppDispatch();
-  const { selectedOrderId, orders, productsInOrder } = useAppSelector((state) => state.orders);
+  const {
+    selectedOrderId,
+  } = useAppSelector((state) => state.orders);
   const {
     id,
     date,
@@ -31,16 +32,6 @@ export const OrderItem: FC<Props> = ({ order }) => {
 
   const handleClickProductsOpen = (orderId: number) => {
     dispatch(orderActions.setSelectedOrderId(orderId));
-    const clickedOrder = orders.find((item) => item.id === orderId);
-
-    if (!clickedOrder) {
-      return;
-    }
-
-    const productFromOrder = getProductsFromOrder(clickedOrder, prodState);
-
-    // setProductsInOrder(productFromOrder);
-    dispatch(orderActions.setProductsInOrder(productFromOrder));
   };
 
   const handleClickProductsClose = () => {
@@ -90,7 +81,7 @@ export const OrderItem: FC<Props> = ({ order }) => {
 
       {selectedOrderId === id && (
         <div className="order__products">
-          <OrderedProducts products={productsInOrder} />
+          <OrderedProducts productsIdsInOrder={order.products} />
         </div>
       )}
     </li>

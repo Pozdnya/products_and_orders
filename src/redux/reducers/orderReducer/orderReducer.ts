@@ -53,6 +53,12 @@ export const orderReducer = (
         order: state.orders.find((order) => order.id === action.payload) || null,
       };
 
+    case OrderActions.SET_PRODUCTS_IN_ORDER:
+      return {
+        ...state,
+        productsInOrder: action.payload,
+      };
+
     case OrderActions.REMOVE_PRODUCT_FROM_ORDER: {
       const { orderId, productId } = action.payload;
 
@@ -66,12 +72,6 @@ export const orderReducer = (
           : order)),
       };
     }
-
-    case OrderActions.SET_PRODUCTS_IN_ORDER:
-      return {
-        ...state,
-        productsInOrder: action.payload,
-      };
 
     default:
       return state;

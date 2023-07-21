@@ -23,8 +23,6 @@ export const OrderedProductCard: FC<Props> = ({ product, orderId }) => {
     id,
   } = product;
 
-  console.log(order);
-
   const handleDeleteClick = (currentProductId: number, currentOrderId: number) => {
     dispatch(orderActions.getOrderById(currentOrderId));
 

@@ -1,12 +1,14 @@
 import { Product } from '../types/product';
+import Monitor from '../images/monitor.jpg';
+import Phone from '../images/phone.jpg';
+import Car from '../images/car.jpg';
 
 export const products: Product[] = [
   {
     id: 1,
     serialNumber: 1234,
     isNew: 1,
-    // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require
-    photo: require('../images/phone.jpg').default,
+    photo: Phone,
     title: 'PhoneI 12 Max Pro',
     type: 'Phones',
     specification: 'Specification 1',
@@ -25,8 +27,7 @@ export const products: Product[] = [
     id: 2,
     serialNumber: 1234,
     isNew: 1,
-    // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require
-    photo: require('../images/monitor.jpg').default,
+    photo: Monitor,
     title: 'Dell P3421WM (210-BDDU)',
     type: 'Monitors',
     specification: 'Specification 1',
@@ -45,8 +46,7 @@ export const products: Product[] = [
     id: 3,
     serialNumber: 1234,
     isNew: 0,
-    // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require
-    photo: require('../images/car.jpg').default,
+    photo: Car,
     title: 'Yotota Cotavia V8 Diesel',
     type: 'Cars',
     specification: 'Specification 1',

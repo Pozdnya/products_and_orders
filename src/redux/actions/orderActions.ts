@@ -43,17 +43,17 @@ const getOrderById = (orderId: number): GetOrderByIdAction => ({
   payload: orderId,
 });
 
+const setProductsInOrder = (products: Product[]): setProductsInOrderAction => ({
+  type: 'order/SET_PRODUCTS_IN_ORDER',
+  payload: products,
+});
+
 const deleteProductFromOrder = (
   orderId: number,
   productId: number,
 ): RemoveProductFromOrderAction => ({
   type: 'order/REMOVE_PRODUCT_FROM_ORDER',
   payload: { orderId, productId },
-});
-
-const setProductsInOrder = (products: Product[]): setProductsInOrderAction => ({
-  type: 'order/SET_PRODUCTS_IN_ORDER',
-  payload: products,
 });
 
 const fetchOrders = () => {
