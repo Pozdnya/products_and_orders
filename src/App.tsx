@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.scss';
 import { Header } from './components/Header';
 import { SideBar } from './components/SideBar';
-import { Home } from './components/pages/Home';
 import { Products } from './components/pages/Products';
 import { PageNotFound } from './components/pages/PageNotFound';
 import { useAppDispatch } from './redux/hooks';
@@ -30,8 +29,7 @@ export const App: React.FC = () => {
           </div>
           <div className="col-10">
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="home" element={<Navigate to="/" replace />} />
+              <Route path="/" element={<Navigate to="/products" replace />} />
               <Route path="products" element={<Products />} />
               <Route path="orders" element={<Orders />} />
               <Route path="*" element={<PageNotFound />} />

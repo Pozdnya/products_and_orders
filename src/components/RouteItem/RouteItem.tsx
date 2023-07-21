@@ -15,11 +15,11 @@ export const RouteItem: FC<Props> = ({ route }) => {
 
   return (
     <li
-      className="routes-list__item"
+      className="routes-list__item mt-3"
     >
       <NavLink
         to={to}
-        className={({ isActive }) => cn('routes-list__item-link',
+        className={({ isActive }) => cn('routes-list__item-link fw-bold',
           { 'routes-list__item-link--active': isActive })}
       >
         {name}

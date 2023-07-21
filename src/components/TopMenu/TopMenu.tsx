@@ -46,18 +46,18 @@ export const TopMenu = () => {
   return (
     <>
       <div className="date">
-        <div className="date__day">Tuesday</div>
-        <div className="date__current">
-          <div className="date__current-full-date">{`${day} ${modifyMonth(month)}. ${year}`}</div>
-          <div className="date__current-time">
-            <div className="date__current-time-icon">
+        <div>Tuesday</div>
+        <div className="d-flex align-items-center justify-content-between">
+          <div>{`${day} ${modifyMonth(month)}. ${year}`}</div>
+          <div className="d-flex  align-items-center gap-2">
+            <div className="d-flex">
               <IconClock className="icon-clock" />
             </div>
             <div className="date__current-time-timer">{`${modifyDate(hours)}: ${modifyDate(minutes)}: ${modifyDate(seconds)}`}</div>
           </div>
         </div>
       </div>
-      <div className="active-sessions">{`Active sessions: ${activeSessions}`}</div>
+      <div className="mt-2 text-center">{`Active sessions: ${activeSessions}`}</div>
     </>
   );
 };

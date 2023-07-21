@@ -1,16 +1,18 @@
 import React from 'react';
-import './Header.scss';
 import { Logo } from '../Logo';
 import { Input } from '../../controls/Input';
 import { TopMenu } from '../TopMenu';
+import './Header.scss';
 
 export const Header = () => {
   return (
-    <div className="header">
+    <div className="border-bottom py-4 shadow-lg header">
       <div className="container-xl">
-        <div className="header__content">
-          <div className="header__search">
-            <div className="header__search-logo">
+        <div
+          className=" justify-content-between align-items-center d-flex"
+        >
+          <div className="d-flex align-items-center gap-4">
+            <div>
               <Logo />
             </div>
             <div className="header__search-input">
@@ -18,7 +20,7 @@ export const Header = () => {
             </div>
           </div>
 
-          <div className="header__date">
+          <div>
             <TopMenu />
           </div>
         </div>

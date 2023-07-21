@@ -2,12 +2,11 @@
 @import '../../styles/animations';
 
 .routes-list__item {
-  margin-top: 12px;
 
   &-link {
     text-decoration: none;
     font-size: 24px;
-    font-weight: 700;
+    // font-weight: 700;
     color: #525C62;
     position: relative;
 
@@ -19,7 +18,7 @@
         content: '';
         width: 0;
         height: 2px;
-        background-color: $primary-color;
+        background-color: var(--bs-teal);
         animation: slide-in-center .3s ease forwards;
       }
     }

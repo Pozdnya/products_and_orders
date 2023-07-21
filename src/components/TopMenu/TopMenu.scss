@@ -1,25 +1,8 @@
-@import '../../styles/vars';
-
 .date {
   width: 200px;
-
-  &__current {
-    display: flex;
-    justify-content: space-between;
-
-    &-time {
-      display: flex;
-      gap: 4px;
-    }
-  }
 }
 
 .icon-clock {
-  fill: $primary-color;
+  fill: var(--bs-teal);
   width: 16px;
-}
-
-.active-sessions {
-  text-align: center;
-  margin-top: 8px;
 }

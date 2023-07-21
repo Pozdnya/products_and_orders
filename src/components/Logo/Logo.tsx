@@ -5,18 +5,18 @@ import logo from '../../images/logo.png';
 
 export const Logo = () => {
   return (
-    <div className="logo">
+    <div>
       <NavLink
         to="/"
-        className="logo__link"
+        className="text-decoration-none d-flex align-items-center gap-2"
       >
         <img
           src={logo}
           alt="Logo"
-          className="logo__link-img"
+          className="w-25 h-25"
         />
 
-        <span className="logo__link-text">Inventory</span>
+        <span className="fs-4 span-text">Inventory</span>
       </NavLink>
     </div>
   );

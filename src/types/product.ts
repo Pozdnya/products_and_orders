@@ -39,11 +39,14 @@ export interface SetErrorAction {
   payload: string;
 }
 
-export type ProductsActionTypes = SetProductsAction | SetLoadingAction | SetErrorAction;
+export type ProductsActionTypes = SetProductsAction
+| SetLoadingAction
+| SetErrorAction;
 
 // eslint-disable-next-line no-shadow
 export enum ProductActions {
   SET_PRODUCTS = 'products/SET_PRODUCTS',
   SET_LOADING = 'products/SET_LOADING',
   SET_ERROR = 'products/SET_ERROR',
+  FILTER_BY_TYPE = 'products/FILTER_BY_TYPE',
 }

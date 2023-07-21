@@ -1,33 +1,36 @@
 .form {
   position: relative;
 
-  &__input {
-    border-color: #DFE3E7;
-    height: 36px;
-    width: 400px;
-    background-color: #F0F2F4;
-    padding: 4px 16px;
-    border-radius: 4px;
-    box-shadow: inset 1px 1px 5px 0px #DEE2E6;
-
-    &::placeholder {
-      font-style: 24px;
-      font-weight: 800;
-    }
-  }
-
   &__clear {
+    border: none;
+    border-radius: 50%;
     position: absolute;
-    right: 5px;
-    top: 5px;
-    cursor: pointer;
-    width: 26px;
-    height: 26px;
-
-    &-btn {
-      border: none;
-      border-radius: 50%;
-      background-color: #CECECE;
-    }
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--bs-gray-500);
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border: 1px solid var(--bs-gray-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+}
+
+.input {
+  width: 400px;
+  border-radius: 4px;
+
+  &::placeholder {
+    font-weight: 600;
+    color: var(--bs-gray-700);
+  }
+}
+
+.clear-btn {
+  border: none;
+  text-align: center;
+  border-radius: 50%;
 }

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { FC } from 'react';
 import './OrderedProducts.scss';
 import { OrderedProductCard } from '../OrderedProductCard';
@@ -22,8 +21,6 @@ export const OrderedProducts: FC<Props> = ({ productsIdsInOrder }) => {
   const productsInOrder = productsIdsInOrder.map((productId) => {
     return products.find((item) => item.id === productId);
   });
-
-  console.log(productsInOrder);
 
   const handleCloseModal = () => {
     dispatch(orderActions.setSelectedOrderId(0));

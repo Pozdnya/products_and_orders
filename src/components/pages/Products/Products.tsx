@@ -9,8 +9,8 @@ export const Products = () => {
   const { products } = useAppSelector((state) => state.products);
 
   return (
-    <div className="products">
-      <div className="products__header">
+    <div className="products w-100 h-100">
+      <div className="d-flex gap-5 align-items-center">
         <h2>{`Products / ${products.length}`}</h2>
         <Select />
       </div>

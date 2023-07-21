@@ -2,6 +2,7 @@ import React, { ChangeEvent } from 'react';
 import './Input.scss';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { actions as filterActions } from '../../redux/actions/filterActions';
+import { Button } from '../Button';
 
 export const Input = () => {
   const dispatch = useAppDispatch();
@@ -15,22 +16,21 @@ export const Input = () => {
     <form className="form" action="">
       <input
         type="text"
-        className="form__input"
-        placeholder="Поиск"
+        className="border-1 border-light px-3 py-2 input bg-light"
+        placeholder="Search"
         value={query}
         onChange={event => handleInput(event)}
       />
-      <span className="form__clear">
-        {query && (
-          <button
-            type="button"
-            className="form__clear-btn"
-            onClick={() => dispatch(filterActions.setQuery(''))}
-          >
+      {query && (
+        <Button
+          classes="form__clear shadow-sm"
+          onClick={() => dispatch(filterActions.setQuery(''))}
+        >
+          <span className="form__clear-text text-light">
             X
-          </button>
-        )}
-      </span>
+          </span>
+        </Button>
+      )}
     </form>
   );
 };
