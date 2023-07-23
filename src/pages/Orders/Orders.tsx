@@ -1,7 +1,5 @@
 import React from 'react';
-import './Orders.scss';
-import { OrderList } from '../../OrderList';
-import { Modal } from '../../Modal';
+import { OrderList } from '../../components/OrderList';
 
 export const Orders = () => {
   return (
@@ -10,7 +8,6 @@ export const Orders = () => {
         <h2>Orders</h2>
       </div>
       <OrderList />
-      <Modal />
     </div>
   );
 };

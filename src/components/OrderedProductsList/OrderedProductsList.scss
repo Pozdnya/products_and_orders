@@ -16,22 +16,28 @@
   &__close {
     border: none;
     border-radius: 50%;
-    background-color: #FFF;
+    background-color: $white-color;
     width: 30px;
     height: 30px;
     padding: 10px;
-    border: 1px solid #CFD7DB;
+    border: 1px solid $primary-grey;
     text-align: center;
-    box-shadow: 1px 1px 10px 1px #92A2AB;
+    box-shadow: 1px 1px 10px 1px $primary-deep-gray;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
     right: -15px;
     top: -50px;
+    transition: background-color .1s ease-in-out, color .1s ease-in-out;
 
     &-text {
-      color: #92A2AB;
+      color: $primary-deep-gray;
+    }
+
+    &:hover {
+      color: $dark-gray;
+      background-color: $primary-grey;
     }
   }
 

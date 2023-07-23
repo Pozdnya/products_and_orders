@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './Logo.scss';
 import logo from '../../images/logo.png';
 
 export const Logo = () => {

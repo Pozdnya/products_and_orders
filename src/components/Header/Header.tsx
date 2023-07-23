@@ -2,14 +2,13 @@ import React from 'react';
 import { Logo } from '../Logo';
 import { Input } from '../../controls/Input';
 import { TopMenu } from '../TopMenu';
-import './Header.scss';
 
 export const Header = () => {
   return (
-    <div className="border-bottom py-4 shadow-lg header">
+    <header className="header border-bottom py-4 shadow-lg">
       <div className="container-xl">
         <div
-          className=" justify-content-between align-items-center d-flex"
+          className="justify-content-between align-items-center d-flex"
         >
           <div className="d-flex align-items-center gap-4">
             <div>
@@ -25,6 +24,6 @@ export const Header = () => {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };

@@ -1,0 +1,82 @@
+.modal-del {
+  display: block;
+  position: fixed;
+  z-index: 10;
+  width: 800px;
+  height: fit-content;
+  background-color: $white-color;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid $primary-grey;
+  border-radius: 4px;
+
+  &__product {
+    padding: 10px 30px;
+
+    &-image {
+      width: 60px;
+      height: 60px;
+    }
+
+    &-info {
+
+      &-title {
+        font-size: 24px;
+        text-decoration: underline;
+      }
+
+      &-sn {
+        font-size: 14px;
+        color: $primary-deep-gray;
+      }
+    }
+  }
+
+  &__footer {
+    background-color: var(--bs-success);
+
+    &-btn {
+      width: 150px;
+      height: 40px;
+      border: none;
+      border-radius: 35px;
+      background-color: inherit;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, fill 0.3s ease-in-out;
+
+      &:hover {
+        background-color: $white-color;
+        color: $red-color;
+        fill: $red-color;
+      }
+
+      &-icon {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    border: none;
+    border-radius: 50%;
+    background-color: $white-color;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border: 1px solid $primary-grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 10px 1px $primary-deep-gray;
+    transition: background-color .1s ease-in-out, color .1s ease-in-out;
+
+    &:hover {
+      color: $dark-gray;
+      background-color: $primary-grey;
+    }
+  }
+}

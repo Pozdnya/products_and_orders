@@ -4,6 +4,7 @@ const initialState: ProductsState = {
   products: [],
   isLoading: false,
   error: null,
+  selectedProductId: 0,
 };
 
 export const productReducer = (
@@ -29,6 +30,12 @@ export const productReducer = (
         ...state,
         error: action.payload,
         isLoading: false,
+      };
+
+    case ProductActions.SELECTED_PRODUCT_ID:
+      return {
+        ...state,
+        selectedProductId: action.payload,
       };
 
     default:

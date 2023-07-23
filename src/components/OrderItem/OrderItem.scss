@@ -6,15 +6,19 @@
     right: 250px;
     top: 0;
     width: 700px;
-    background-color: #FFF;
+    background-color: $white-color;
     border-radius: 4px;
+
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slide-in-rigth 0.3s ease-in-out forwards;
   }
 
   &__item {
     width: 500px;
     height: 70px;
-    background-color: #FFF;
-    border: 1px solid #CFD7DB;
+    background-color: $white-color;
+    border: 1px solid $primary-grey;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -22,16 +26,15 @@
 
     &-list {
       border-radius: 50%;
-      border: 1px solid #CFD7DB;
+      border: 1px solid $primary-grey;
       width: 50px;
       height: 50px;
       margin-left: 20px;
-      background-color: #F0F2F4;
+      background-color: $primary-light-grey;
 
       &-icon {
         width: 25px;
         height: 25px;
-        fill: #5A6D78;
       }
     }
 
@@ -39,12 +42,12 @@
 
       &-number {
         font-size: 24px;
-        color: #687983;
+        color: $primary-deep-gray;
       }
 
       &-products {
         font-size: 16px;
-        color: #92A2AB;
+        color: $primary-deep-gray;
       }
     }
 
@@ -52,7 +55,7 @@
 
       &-usd {
         font-size: 12px;
-        color: #92A2AB;
+        color: $primary-deep-gray;
       }
 
       &-uah {
@@ -66,11 +69,11 @@
       &-small {
         font-size: 12px;
         font-weight: 400;
-        color: #BAC3C9;
+        color: $secondary-grey;
       }
 
       &-normal {
-        color: #839098;
+        color: $dark-gray;
         font-size: 18px;
         font-weight: 600;
       }
@@ -82,13 +85,13 @@
       &-btn {
         height: 70px;
         width: 40px;
-        background-color: #C2CACD;
+        background-color: $primary-grey;
         border: none;
 
         &-icon {
           width: 20px;
           height: 20px;
-          fill: #FFF;
+          fill: $white-color;
         }
       }
     }

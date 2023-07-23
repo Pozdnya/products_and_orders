@@ -1,18 +1,17 @@
-/* eslint-disable no-console */
-import React, { FC } from 'react';
+import React, { FC, useCallback, memo } from 'react';
 import { Product } from '../../types/product';
-import './OrderedProductCard.scss';
 import { ReactComponent as IconRemove } from '../../images/icon-trash.svg';
 import { Button } from '../../controls/Button';
 import { useAppDispatch } from '../../redux/hooks';
 import { actions as orderActions } from '../../redux/actions/orderActions';
+import { actions } from '../../redux/actions/productActions';
 
 interface Props {
   product: Product;
   orderId: number;
 }
 
-export const OrderedProductCard: FC<Props> = ({ product, orderId }) => {
+export const OrderedProductCard: FC<Props> = memo(({ product, orderId }) => {
   const dispatch = useAppDispatch();
   const {
     title,
@@ -22,12 +21,10 @@ export const OrderedProductCard: FC<Props> = ({ product, orderId }) => {
     id,
   } = product;
 
-  const handleDeleteClick = (currentProductId: number, currentOrderId: number) => {
+  const handleDeleteClick = useCallback((currentProductId: number, currentOrderId: number) => {
     dispatch(orderActions.getOrderById(currentOrderId));
-    console.log(currentProductId);
-
-    // dispatch(orderActions.deleteProductFromOrder(currentOrderId, currentProductId));
-  };
+    dispatch(actions.setSelectedProductId(currentProductId));
+  }, [dispatch]);
 
   return (
     <div className="ordered-item">
@@ -59,4 +56,4 @@ export const OrderedProductCard: FC<Props> = ({ product, orderId }) => {
       </div>
     </div>
   );
-};
+});

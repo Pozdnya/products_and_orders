@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { RouteItem } from '../RouteItem';
-import './RoutesList.scss';
 
 export const RoutesList = () => {
   const routes = [

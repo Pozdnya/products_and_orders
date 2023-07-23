@@ -1,6 +1,5 @@
 import React from 'react';
 import { ReactComponent as IconGear } from '../../images/icon-gear.svg';
-import './UserLogo.scss';
 
 export const UserLogo = () => {
   return (

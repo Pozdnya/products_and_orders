@@ -1,7 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
-import './RouteItem.scss';
 
 interface Props {
   route: {
@@ -10,7 +9,7 @@ interface Props {
   };
 }
 
-export const RouteItem: FC<Props> = ({ route }) => {
+export const RouteItem: FC<Props> = memo(({ route }) => {
   const { to, name } = route;
 
   return (
@@ -26,4 +25,4 @@ export const RouteItem: FC<Props> = ({ route }) => {
       </NavLink>
     </li>
   );
-};
+});

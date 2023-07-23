@@ -9,7 +9,7 @@ import {
   SetLoadingAction,
   SetOrdersAction,
   SetSelectedOrderIdAction,
-  setProductsInOrderAction,
+  SetProductsInOrderAction,
 } from '../../types/order';
 import { orders } from '../../api/orders';
 import { Product } from '../../types/product';
@@ -43,7 +43,7 @@ const getOrderById = (orderId: number): GetOrderByIdAction => ({
   payload: orderId,
 });
 
-const setProductsInOrder = (products: Product[]): setProductsInOrderAction => ({
+const setProductsInOrder = (products: Product[]): SetProductsInOrderAction => ({
   type: 'order/SET_PRODUCTS_IN_ORDER',
   payload: products,
 });

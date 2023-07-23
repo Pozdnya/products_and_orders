@@ -1,5 +1,9 @@
-import React, { FC } from 'react';
-import './OrderedProducts.scss';
+import React, {
+  FC,
+  Fragment,
+  memo,
+  useCallback,
+} from 'react';
 import { OrderedProductCard } from '../OrderedProductCard';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { actions as orderActions } from '../../redux/actions/orderActions';
@@ -9,22 +13,22 @@ interface Props {
   productsIdsInOrder: number[];
 }
 
-export const OrderedProducts: FC<Props> = ({ productsIdsInOrder }) => {
+export const OrderedProductsList: FC<Props> = memo(({ productsIdsInOrder }) => {
   const dispatch = useAppDispatch();
   const { selectedOrderId, orders } = useAppSelector((state) => state.orders);
   const { products } = useAppSelector((state) => state.products);
 
-  const getOrderTitle = (orderId: number) => {
+  const getOrderTitle = useCallback((orderId: number) => {
     return orders.find((item) => item.id === orderId)?.title;
-  };
+  }, [orders]);
 
   const productsInOrder = productsIdsInOrder.map((productId) => {
     return products.find((item) => item.id === productId);
   });
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     dispatch(orderActions.setSelectedOrderId(0));
-  };
+  }, [dispatch]);
 
   return (
     <div className="ordered">
@@ -33,13 +37,29 @@ export const OrderedProducts: FC<Props> = ({ productsIdsInOrder }) => {
       </div>
 
       <div className="ordered__products">
-        {productsInOrder.map(product => (
-          <ul className="ordered__products-item" key={product.id}>
-            <OrderedProductCard product={product} orderId={selectedOrderId} />
-          </ul>
-        ))}
+        <ul className="ordered__products-item">
+          {productsInOrder.length !== 0 ? (
+            <>
+              {
+                productsInOrder.map(product => {
+                  if (!product) {
+                    return null;
+                  }
+
+                  return (
+                    <Fragment key={product.id}>
+                      <OrderedProductCard product={product} orderId={selectedOrderId} />
+                    </Fragment>
+                  );
+                })
+              }
+            </>
+          ) : (
+            <p className="ordered__products-empty">No products in this order</p>
+          )}
+        </ul>
       </div>
       <CloseBtn classes="ordered__close" handleClose={handleCloseModal} />
     </div>
   );
-};
+});

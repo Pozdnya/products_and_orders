@@ -1,5 +1,4 @@
-import React, { ChangeEvent } from 'react';
-import './Select.scss';
+import React, { ChangeEvent, useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { SortTypes } from '../../types/filter';
 import { actions as filterActions } from '../../redux/actions/filterActions';
@@ -8,9 +7,9 @@ export const Select = () => {
   const { products } = useAppSelector((state) => state.products);
   const dispatch = useAppDispatch();
 
-  const handleSelect = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handleSelect = useCallback((event: ChangeEvent<HTMLSelectElement>) => {
     dispatch(filterActions.setSort(event.target.value as SortTypes));
-  };
+  }, [dispatch]);
 
   return (
     <label htmlFor="select" className="filter-types">

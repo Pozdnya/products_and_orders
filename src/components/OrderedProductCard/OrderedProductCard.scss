@@ -3,8 +3,8 @@
   align-items: center;
   gap: 20px;
   height: 80px;
-  border-top: 1px solid #CFD7DB;
-  border-bottom: 1px solid #CFD7DB;
+  border-top: 1px solid $primary-grey;
+  border-bottom: 1px solid $primary-grey;
   justify-content: space-around;
   padding: 0 20px;
 
@@ -28,20 +28,29 @@
     &-sn {
       font-size: 12px;
       font-weight: 400;
-      color: #BAC3C9;
+      color: $secondary-grey;
     }
   }
 
   &__delete {
-    width: auto;
-    
+    width: 44px;
+    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, fill 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $primary-light-grey;
+      border-radius: 50%;
+      border: 1px solid $primary-grey;
+      fill: $icon-hover-color;
+      opacity: 0.6;
+      cursor: pointer;
+    }
+
     &-btn {
       width: 42px;
       height: 42px;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
       border: none;
       background-color: transparent;
 
@@ -49,14 +58,6 @@
         width: 24px;
         height: 24px;
       }
-    }
-
-    &:hover {
-      background-color: #F0F2F4;
-      border-radius: 50%;
-      border: 1px solid #CFD7DB;
-      fill: #514f51;
-      opacity: 0.6;
     }
   }
 }

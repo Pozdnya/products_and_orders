@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { Button } from '../Button';
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
   classes?: string;
 }
 
-export const CloseBtn: FC<Props> = ({ handleClose, classes }) => {
+export const CloseBtn: FC<Props> = memo(({ handleClose, classes }) => {
   return (
     <Button
       classes={classes}
@@ -15,4 +15,4 @@ export const CloseBtn: FC<Props> = ({ handleClose, classes }) => {
       <span className="ordered__close-text">X</span>
     </Button>
   );
-};
+});

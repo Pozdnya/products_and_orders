@@ -1,5 +1,4 @@
-import React, { ChangeEvent } from 'react';
-import './Input.scss';
+import React, { ChangeEvent, useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { actions as filterActions } from '../../redux/actions/filterActions';
 import { Button } from '../Button';
@@ -8,9 +7,9 @@ export const Input = () => {
   const dispatch = useAppDispatch();
   const { query } = useAppSelector(state => state.filter);
 
-  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
-    dispatch(filterActions.setQuery(event.target.value as string));
-  };
+  const handleInput = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    dispatch(filterActions.setQuery(event.target.value));
+  }, [dispatch]);
 
   return (
     <form className="form" action="">

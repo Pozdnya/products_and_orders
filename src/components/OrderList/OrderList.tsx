@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { useAppSelector } from '../../redux/hooks';
 import { OrderItem } from '../OrderItem';
-import './OrderList.scss';
 
 export const OrderList = () => {
   const { orders } = useAppSelector((state) => state.orders);

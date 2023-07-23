@@ -1,7 +1,6 @@
 import { Product } from './product';
 
 export interface Order {
-  productsInOrder: any;
   id: number;
   title: string;
   date: string;
@@ -16,7 +15,6 @@ export type OrdersState = {
   selectedOrderId: number;
   isClickedOrder: boolean;
   order: Order | null;
-  productsInOrder: Product[] | [];
 };
 
 export interface SetOrdersAction {
@@ -61,7 +59,7 @@ export interface RemoveProductFromOrderAction {
   };
 }
 
-export interface setProductsInOrderAction {
+export interface SetProductsInOrderAction {
   type: 'order/SET_PRODUCTS_IN_ORDER';
   payload: Product[];
 }
@@ -74,7 +72,7 @@ export type OrdersActionTypes = SetOrdersAction
 | GetOrderByIdAction
 | UpdateOrdersAction
 | RemoveProductFromOrderAction
-| setProductsInOrderAction;
+| SetProductsInOrderAction;
 
 // eslint-disable-next-line no-shadow
 export enum OrderActions {

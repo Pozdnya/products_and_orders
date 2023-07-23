@@ -1,13 +1,9 @@
-@import '../../styles/vars';
-@import '../../styles/animations';
-
 .routes-list__item {
 
   &-link {
     text-decoration: none;
     font-size: 24px;
-    // font-weight: 700;
-    color: #525C62;
+    color: $secondary-deep-grey;
     position: relative;
 
     &--active {

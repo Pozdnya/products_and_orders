@@ -38,13 +38,10 @@ export const sumProducts = (prods: Product[], prodIds: number[]) => {
   return [priceUSD, priceUAH];
 };
 
-export const getProductsFromOrder = (
-  clickedOrder: Order,
-  allproducts: Product[],
-) => {
-  const productsFromOrder = allproducts.filter((product) => (
-    clickedOrder.products.includes(product.id)
-  ));
+export const getOrderById = (orders: Order[], id: number) => {
+  return orders.find(order => order.id === id);
+};
 
-  return productsFromOrder;
+export const getProductById = (products: Product[], id: number) => {
+  return products.find(product => product.id === id);
 };

@@ -1,18 +1,17 @@
-import React, { FC } from 'react';
+import React, { FC, memo, useCallback } from 'react';
 import cn from 'classnames';
 import { Product } from '../../types/product';
 import { changeDateView, changeMonthView, shortDate } from '../../utils/variables';
 import { useAppSelector } from '../../redux/hooks';
 import { ReactComponent as IconAdd } from '../../images/icon-plus.svg';
 import { ReactComponent as IconRemove } from '../../images/icon-trash.svg';
-import './ProductItem.scss';
 import { Button } from '../../controls/Button';
 
 interface Props {
   product: Product;
 }
 
-export const ProductItem: FC<Props> = ({ product }) => {
+export const ProductItem: FC<Props> = memo(({ product }) => {
   const {
     photo,
     title,
@@ -23,15 +22,15 @@ export const ProductItem: FC<Props> = ({ product }) => {
     price,
   } = product;
   const { orders } = useAppSelector(state => state.orders);
-  const getOrder = (orderId: number) => {
+  const getOrder = useCallback((orderId: number) => {
     return orders.find(order => order.id === orderId);
-  };
+  }, [orders]);
 
   const orderTitle = getOrder(product.order)?.title || '';
   const orderDate = getOrder(product.order)?.date || '';
 
   return (
-    <div className="card">
+    <div className="card d-flex flex-row align-items-center gap-5 px-4 py-3">
       <div className="card__image">
         <img
           src={photo}
@@ -40,16 +39,16 @@ export const ProductItem: FC<Props> = ({ product }) => {
         />
       </div>
 
-      <div className="card__info">
-        <p className="card__info-title">{title}</p>
+      <div className="card__info d-flex flex-column">
+        <p className="card__info-title fw-bold">{title}</p>
         <div className="card__info-sn">{`SN-${serialNumber}`}</div>
       </div>
 
-      <div className="card__type">
-        <p className="card__type-text">{type}</p>
+      <div className="card__type text-center">
+        <p className="card__type-text fw-bold">{type}</p>
       </div>
 
-      <div className="card__guarantie">
+      <div className="card__guarantie d-flex gap-2">
         <div className="card__guarantie-interval">
           <p className="card__guarantie-interval-text">From</p>
 
@@ -86,10 +85,10 @@ export const ProductItem: FC<Props> = ({ product }) => {
       </div>
 
       <div className="card__date">
-        <p className="card__date-small-text">
+        <p className="card__date-small-text text-center">
           {orderDate === '' ? '' : shortDate(orderDate)}
         </p>
-        <p className="card__date-text">
+        <p className="card__date-text text-center">
           {orderDate === '' ? '-' : changeMonthView(orderDate)}
         </p>
       </div>
@@ -105,4 +104,4 @@ export const ProductItem: FC<Props> = ({ product }) => {
       </div>
     </div>
   );
-};
+});

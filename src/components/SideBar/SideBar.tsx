@@ -1,7 +1,6 @@
 import React from 'react';
 import { UserLogo } from '../UserLogo';
 import { RoutesList } from '../RoutesList';
-import './SideBar.scss';
 
 export const SideBar = () => {
   return (

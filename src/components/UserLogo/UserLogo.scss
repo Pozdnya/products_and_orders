@@ -1,6 +1,5 @@
 .user-logo {
   position: relative;
-  // padding: 48px 0;
 
   &__photo {
     width: 150px;
@@ -14,9 +13,9 @@
     right: 5px;
     background-color: var(--bs-white);
     border-radius: 50%;
-    border: 1px solid #E5E5E5;
+    border: 1px solid $secondary-light-grey;
     cursor: pointer;
-    box-shadow: 0 0 4px 2px #E5E5E5;
+    box-shadow: 0 0 4px 2px $secondary-light-grey;
 
     &-gear {
       width: 36px;

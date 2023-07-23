@@ -2,6 +2,7 @@ import { Dispatch } from 'redux';
 import {
   Product,
   ProductsActionTypes,
+  SelectedProductIdAction,
   SetErrorAction,
   SetLoadingAction,
   SetProductsAction,
@@ -22,6 +23,11 @@ const setError = (error: string): SetErrorAction => ({
   payload: error,
 });
 
+const setSelectedProductId = (id: number): SelectedProductIdAction => ({
+  type: 'products/SELECTED_PRODUCT_ID',
+  payload: id,
+});
+
 const fetchProducts = () => {
   return async (dispatch: Dispatch<ProductsActionTypes>) => {
     dispatch(setLoading());
@@ -38,4 +44,5 @@ export const actions = {
   setLoading,
   setError,
   fetchProducts,
+  setSelectedProductId,
 };

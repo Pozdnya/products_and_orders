@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler } from 'react';
+import React, { FC, MouseEventHandler, memo } from 'react';
 
 type ButtonType = (MouseEventHandler<HTMLButtonElement>);
 
@@ -9,7 +9,7 @@ interface Props {
 
 }
 
-export const Button: FC<Props> = ({ children, classes, onClick }) => {
+export const Button: FC<Props> = memo(({ children, classes, onClick }) => {
   return (
     <button
       type="button"
@@ -19,4 +19,4 @@ export const Button: FC<Props> = ({ children, classes, onClick }) => {
       {children}
     </button>
   );
-};
+});

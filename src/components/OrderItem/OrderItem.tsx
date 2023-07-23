@@ -1,8 +1,6 @@
-/* eslint-disable no-console */
-import React, { FC } from 'react';
+import React, { FC, memo, useCallback } from 'react';
 import { ReactComponent as IconList } from '../../images/icon-list.svg';
 import { ReactComponent as IconArrow } from '../../images/icon-arrow.svg';
-import './OrderItem.scss';
 import { Order } from '../../types/order';
 import {
   changeMonthView,
@@ -12,13 +10,13 @@ import {
 import { Button } from '../../controls/Button';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { actions as orderActions } from '../../redux/actions/orderActions';
-import { OrderedProducts } from '../OrderedProducts';
+import { OrderedProductsList } from '../OrderedProductsList';
 
 interface Props {
   order: Order;
 }
 
-export const OrderItem: FC<Props> = ({ order }) => {
+export const OrderItem: FC<Props> = memo(({ order }) => {
   const dispatch = useAppDispatch();
   const {
     selectedOrderId,
@@ -30,13 +28,13 @@ export const OrderItem: FC<Props> = ({ order }) => {
   } = order;
   const prodState = useAppSelector((state) => state.products.products);
 
-  const handleClickProductsOpen = (orderId: number) => {
+  const handleClickProductsOpen = useCallback((orderId: number) => {
     dispatch(orderActions.setSelectedOrderId(orderId));
-  };
+  }, [dispatch]);
 
-  const handleClickProductsClose = () => {
+  const handleClickProductsClose = useCallback(() => {
     dispatch(orderActions.setSelectedOrderId(0));
-  };
+  }, []);
 
   return (
     <li className="order">
@@ -81,9 +79,9 @@ export const OrderItem: FC<Props> = ({ order }) => {
 
       {selectedOrderId === id && (
         <div className="order__products">
-          <OrderedProducts productsIdsInOrder={order.products} />
+          <OrderedProductsList productsIdsInOrder={order.products} />
         </div>
       )}
     </li>
   );
-};
+});

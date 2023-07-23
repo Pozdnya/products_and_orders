@@ -7,7 +7,6 @@ const initialState: OrdersState = {
   selectedOrderId: 0,
   isClickedOrder: false,
   order: null,
-  productsInOrder: [],
 };
 
 export const orderReducer = (
@@ -41,22 +40,10 @@ export const orderReducer = (
         selectedOrderId: action.payload,
       };
 
-    case OrderActions.SET_IS_CLICKED_ORDER:
-      return {
-        ...state,
-        isClickedOrder: action.payload,
-      };
-
     case OrderActions.GET_ORDER_BY_ID:
       return {
         ...state,
         order: state.orders.find((order) => order.id === action.payload) || null,
-      };
-
-    case OrderActions.SET_PRODUCTS_IN_ORDER:
-      return {
-        ...state,
-        productsInOrder: action.payload,
       };
 
     case OrderActions.REMOVE_PRODUCT_FROM_ORDER: {

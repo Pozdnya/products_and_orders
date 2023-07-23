@@ -1,9 +1,7 @@
-/* eslint-disable no-console */
 import React from 'react';
-import './Products.scss';
-import { ProductsList } from '../../ProductsList';
-import { Select } from '../../../controls/Select';
-import { useAppSelector } from '../../../redux/hooks';
+import { useAppSelector } from '../../redux/hooks';
+import { Select } from '../../controls/Select';
+import { ProductsList } from '../../components/ProductsList';
 
 export const Products = () => {
   const { products } = useAppSelector((state) => state.products);

@@ -1,7 +1,5 @@
-/* eslint-disable no-console */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import io from 'socket.io-client';
-import './TopMenu.scss';
 import { ReactComponent as IconClock } from '../../images/icon-clock.svg';
 import { modifyDate, modifyMonth, monthes } from '../../utils/variables';
 
@@ -15,7 +13,7 @@ export const TopMenu = () => {
   const [year, setYear] = useState(0);
   const [activeSessions, setActiveSessions] = useState(0);
 
-  const timer = () => {
+  const timer = useCallback(() => {
     setDate(new Date());
     setYear(date.getFullYear());
     setDay(date.getDate());
@@ -23,7 +21,7 @@ export const TopMenu = () => {
     setHours(date.getHours());
     setMinutes(date.getMinutes());
     setSeconds(date.getSeconds());
-  };
+  }, [date]);
 
   useEffect(() => {
     const interval = setInterval(timer, 1000);
